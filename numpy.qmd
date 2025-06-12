@@ -1,0 +1,314 @@
+---
+title: Numpy
+format: live-html
+toc: true
+---
+
+[Numpy](https://numpy.org/) is a Python library for numerical computing. It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays. Numpy is the foundation of many other Python libraries for scientific computing, such as Pandas, Scipy, and Matplotlib.
+
+In this section, we will cover the basics of Numpy, including how to create arrays, perform mathematical operations, and manipulate array data.
+
+## Creating Arrays
+
+```{pyodide}
+# Import the numpy library
+import numpy as np
+
+# 1D array
+arr1 = np.array([1, 2, 3, 4, 5])
+print(arr1)
+
+# 2D array
+arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+print(arr2)
+
+# Array of zeros and ones
+zeros = np.zeros((2, 3))  # 2x3 matrix of zeros
+ones = np.ones((3, 3))    # 3x3 matrix of ones
+print(zeros)
+print(ones)
+
+# Identity matrix
+identity = np.eye(3)  # 3x3 identity matrix
+print(identity)
+
+# Random array
+rand_arr = np.random.rand(3, 3)  # 3x3 matrix with random values
+print(rand_arr)
+```
+
+## Array Properties
+```{pyodide}
+arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+
+print(arr2.shape)  # Dimensions of array
+print(arr2.size)   # Total elements
+print(arr2.dtype)  # Data type
+```
+
+## Indexing and Slicing
+```{pyodide}
+arr1 = np.array([1, 2, 3, 4, 5])
+arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+
+# 1d array indexing and slicing
+print(arr1[0])      # First element
+print(arr1[1:4])    # Elements from index 1 to 3
+
+# 2d array indexing and slicing
+print(arr2[1, 2])   # Element at row 1, column 2
+print(arr2[0, :])   # All elements in the first row
+print(arr2[:, 1])   # All elements in the second column
+print(arr2[0:2, 1:3])  # Submatrix from row 0-1 and column 1-2
+```
+
+## Modifying Arrays
+```{pyodide}
+arr1 = np.array([1, 2, 3, 4, 5])
+arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+
+arr1[2] = 10       # Change third element
+arr2[:, 1] = 7     # Change all elements in second column to 7
+
+print(arr1)
+print(arr2)
+```
+
+## Mathematical Operations
+```{pyodide}
+arr3 = np.array([1, 2, 3, 4])
+arr4 = np.array([5, 6, 7, 8])
+
+print(arr3 + arr4)  # Element-wise addition
+print(arr3 * arr4)  # Element-wise multiplication
+print(arr3 ** 2)    # Squaring each element
+```
+
+## Matrix Operations
+```{pyodide}
+mat1 = np.array([[1, 2], [3, 4]])
+mat2 = np.array([[5, 6], [7, 8]])
+
+print(np.dot(mat1, mat2))  # Matrix multiplication
+print(np.transpose(mat1))  # Transpose
+print(np.linalg.inv(mat1)) # Inverse of a matrix (if invertible)
+```
+
+## Aggregation Functions
+```{pyodide}
+# 1d array aggregation
+arr1d = np.array([1, 2, 3, 4, 5])
+print(np.sum(arr1d))      # Sum
+print(np.mean(arr1d))     # Mean
+print(np.min(arr1d))      # Minimum value
+print(np.max(arr1d))      # Maximum value
+
+# print a dividing line
+print('-' * 20)
+
+# 2d array aggregation
+arr2d = np.array([[1, 2, 3], [4, 5, 6]])
+print(np.sum(arr2d))          # Sum of all elements
+print(np.sum(arr2d, axis=0))  # Sum along columns
+print(np.sum(arr2d, axis=1))  # Sum along rows
+print(np.mean(arr2d, axis=0)) # Mean along columns
+print(np.mean(arr2d, axis=1)) # Mean along rows
+print(np.min(arr2d, axis=1))  # Minimum value along rows
+print(np.max(arr2d, axis=0))  # Maximum value along columns
+```
+
+## Reshaping and Stacking
+```{pyodide}
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+
+reshaped = arr.reshape(3, 2)     # Reshape to 3x2 matrix
+stacked = np.vstack([arr, arr])  # Vertical stack
+
+print(reshaped)
+print(stacked)
+```
+
+## Boolean Masking
+```{pyodide}
+arr = np.array([10, 20, 30, 40])
+mask = arr > 20
+print(arr[mask])  # Elements greater than 20
+```
+
+## Broadcasting
+```{pyodide}
+arr23 = np.array([[1, 2, 3], [4, 5, 6]]) # 2x3 matrix
+scalar = 10
+print(f"{arr23} + {scalar} =")
+print(arr23 + scalar)  # Adding a scalar to each element
+
+# print a dividing line
+print('-' * 20)
+
+arr13 = np.array([1, 2, 3]) # 1x3 matrix
+print(f"{arr23} + {arr13} =")
+print(arr23 + arr13)  # Broadcasting row-wise addition
+
+# print a dividing line
+print('-' * 20)
+
+column_vec_21 = np.array([[1], [2]]) # 2x1 matrix
+print(f"{arr23} +\n{column_vec_21} =")
+print(arr23 + column_vec_21)  # Broadcasting column-wise addition
+```
+
+## Exercise
+
+### Exercise 1
+
+Complete the following tasks using NumPy based on what you've learned:
+
+1. Create a 4x4 NumPy array with random integers between 1 and 100.
+2. Replace all even numbers in the array with -1.
+3. Compute the sum of each row and store it in a new array.
+4. Reshape the original 4x4 array into a 2x8 array.
+5. Find the maximum value in the reshaped array.
+
+:::: {.panel-tabset}
+## Exercise
+```{pyodide}
+#| envir: ex_numpy
+#| exercise: ex_numpy
+#| caption: NumPy Exercise
+import numpy as np
+
+# Step 1: Create a 4x4 array with random integers between 1 and 100
+arr = ______
+print("Original Array:\n", arr)
+
+# Step 2: Replace even numbers with -1
+arr[______] = -1
+print("Modified Array:\n", arr)
+
+# Step 3: Compute row-wise sum
+row_sums = np.sum(arr, ______)
+print("Row sums:", row_sums)
+
+# Step 4: Reshape into 2x8
+reshaped_arr = ______
+print("Reshaped Array:\n", reshaped_arr)
+
+# Step 5: Find maximum value in reshaped array
+max_value = ______
+print("Maximum value:", max_value)
+```
+
+## Solution
+::: { .solution exercise="ex_numpy" }
+
+```python
+import numpy as np
+
+# Step 1: Create a 4x4 array with random integers between 1 and 100
+arr = np.random.randint(1, 101, (4, 4))
+print("Original Array:\n", arr)
+
+# Step 2: Replace even numbers with -1
+arr[arr % 2 == 0] = -1
+print("Modified Array:\n", arr)
+
+# Step 3: Compute row-wise sum
+row_sums = np.sum(arr, axis=1)
+print("Row sums:", row_sums)
+
+# Step 4: Reshape into 2x8
+reshaped_arr = arr.reshape(2, 8)
+print("Reshaped Array:\n", reshaped_arr)
+
+# Step 5: Find maximum value in reshaped array
+max_value = np.max(reshaped_arr)
+print("Maximum value:", max_value)
+```
+:::
+
+::::
+
+### Exercise 2
+
+The Mini Snakes and Ladders game we discussed in [the last section](mini_snl.qmd#sec-snl) can be solved mathematically using a Markov chain. We can setup a transition matrix to represent the probabilities of moving from one state to another. The states are the squares on the board, and the transitions are determined by the roll of a die and the presence of snakes and ladders. The formula to solve the expected number of rolls to finish the game is the sum of the first row of the following matrix $P$.
+
+$$
+P = (I - Q)^{-1},
+$$
+
+where $I$ is the identity matrix and $Q$ is the transition matrix. Therefore $P$ is the inverse of $I - Q$.
+
+In Markov chain theory, $P$ is called the fundamental matrix. An entry $P_{ij}$ is the expected number of times the process is in state $j$ given that it started in state $i$. Therefore, the sum of the first row of $P$ represents the expected number of steps before absorption (i.e., end of game), starting from the first state (i.e., the number 0 square.)
+
+Find the expected number of rolls to finish the game using Numpy.
+
+:::: {.panel-tabset}
+## Exercise
+
+```{pyodide}
+#| envir: ex_numpy_snl
+#| exercise: ex_numpy_snl
+#| caption: SNL with Numpy
+import numpy as np
+
+# Transition matrix
+Q = np.array([
+    # each row or col corresponds to the
+    # a number square on the board (no need for 4, 8 and 9)
+    #0,   1,   2,   3,   5,   6,   7
+    [0, 1/6, 1/6, 1/6, 1/6, 1/6, 1/6], #0
+    [0,   0, 1/6, 1/6, 1/6, 1/6, 2/6], #1
+    [0,   0, 1/6, 1/6, 1/6, 1/6, 2/6], #2
+    [0,   0, 1/6,   0, 1/6, 1/6, 2/6], #3
+    [0,   0, 2/6,   0,   0, 1/6, 2/6], #5
+    [0,   0, 2/6,   0,   0, 1/6, 2/6], #6
+    [0,   0, 2/6,   0, 1/6, 1/6, 1/6]  #7
+])
+
+# Create identity matrix
+I = ______
+
+# solve for P
+P = ______
+
+# Calculate expected number of rolls
+expected_rolls = ______
+
+# Print the expected number of rolls
+print("Expected number of rolls to finish the game:", expected_rolls)
+```
+
+## Solution
+::: { .solution exercise="ex_numpy_snl" }
+```python
+import numpy as np
+
+# Transition matrix
+Q = np.array([
+    # each row or col corresponds to the
+    # a number square on the board (no need for 4, 8 and 9)
+    #0,   1,   2,   3,   5,   6,   7
+    [0, 1/6, 1/6, 1/6, 1/6, 1/6, 1/6], #0
+    [0,   0, 1/6, 1/6, 1/6, 1/6, 2/6], #1
+    [0,   0, 1/6, 1/6, 1/6, 1/6, 2/6], #2
+    [0,   0, 1/6,   0, 1/6, 1/6, 2/6], #3
+    [0,   0, 2/6,   0,   0, 1/6, 2/6], #5
+    [0,   0, 2/6,   0,   0, 1/6, 2/6], #6
+    [0,   0, 2/6,   0, 1/6, 1/6, 1/6]  #7
+])
+
+# Create identity matrix
+I = np.eye(7)
+
+# solve for P
+P = np.linalg.inv(I - Q)
+
+# Calculate expected number of rolls
+expected_rolls = np.sum(P[0, :])
+
+# Print the expected number of rolls
+print("Expected number of rolls to finish the game:", expected_rolls)
+```
+:::
+
+::::

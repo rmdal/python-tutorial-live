@@ -1,0 +1,34 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Intro to Python"
+  description: "Python review and intro to rc students"
+  repo-url: https://github.com/rmdal/python-tutorial-live
+  repo-actions: [issue]
+  repo-subdir: "docs"
+  favicon: images/python-favicon.jpg
+  page-navigation: true
+  sidebar:
+    contents:
+      - href: index.qmd
+      - section: Basics
+        contents:
+          - data_structures.qmd
+          - prog_structures.qmd
+          - mini_snl.qmd
+      - section: Data Analysis
+        contents:
+          - numpy.qmd
+          - pandas.qmd
+          - regression.qmd
+      - text: "---"
+      - href: resources.qmd
+  page-footer: 
+    left: Created by Jay | Back to [MDAL Computing](https://rmdal.github.io/)
+    right: Built with [Quarto](https://quarto.org/) and [Quarto-live](https://r-wasm.github.io/quarto-live/)
+ 
+theme:
+  light: [cosmo, styles.scss]
+  dark: solar

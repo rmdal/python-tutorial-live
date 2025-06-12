@@ -1,0 +1,449 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Python is a versatile and beginner-friendly programming language. This tutorial will cover the fundamentals of Python programming, with a particular focus on data analysis tasks.\nWe first review the basic data and programming structures in Python, most of which should be familiar to you from CSC108. We then cover three basic topics to get you started with data analysis in Python:\n\nWork with arrays (using the NumPy library).\nProcess tabular datasets (using the Pandas library).\nPerform a simple regression analysis.\n\nThis tutorial site is somewhat “special” as you can try out the code snippets in the tutorial and see the results immediately in the browser.\n\n\n\n\n\n\nNote\n\n\n\nAs a result, you may find the site loads slowly because it needs to load the Python interpreter, certain libraries and datasets, so please be patient.\n\n\nAs an example, let’s start with a simple “Hello, World!” program.\n\n\n\n\n\n\nClick the “Run Code” button to run the code snippet. You could also edit the code in the code block. For example, print a different message if you like. If you want to reset the code snippet back to the original, click the “Start Over” button.\nYou will also see exercises throughout the tutorial to help you practice what you’ve learned.\n\nExercise ☕📝\nPrint the message “Python is fun!” in all uppercase and add two more exclamation marks at the end.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Learn Python programming and data science with these free resources:\n\nProgramming with Python by Software Carpentry\nPython Intro by Google\nPython for Beginners by Microsoft\nPython for Data Analysis, 3E by Wes McKinney (creator of pandas library)\nPython Data Science Handbook by Jake VanderPlas\nNumpy Quick Start\n10 Minutes to Pandas\nPython Style Guide",
+    "crumbs": [
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "resources.html#tutorials-books",
+    "href": "resources.html#tutorials-books",
+    "title": "Resources",
+    "section": "",
+    "text": "Learn Python programming and data science with these free resources:\n\nProgramming with Python by Software Carpentry\nPython Intro by Google\nPython for Beginners by Microsoft\nPython for Data Analysis, 3E by Wes McKinney (creator of pandas library)\nPython Data Science Handbook by Jake VanderPlas\nNumpy Quick Start\n10 Minutes to Pandas\nPython Style Guide",
+    "crumbs": [
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "resources.html#python-cloud-notebook-services",
+    "href": "resources.html#python-cloud-notebook-services",
+    "title": "Resources",
+    "section": "Python Cloud Notebook Services",
+    "text": "Python Cloud Notebook Services\nRun Python code in the cloud with these free services:\n\nGoogle Colab\nUofT JupyterHub (choose Jupyter or JupterLab for Python)\nAnaconda Cloud (choose the free tier)",
+    "crumbs": [
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "prog_structures.html",
+    "href": "prog_structures.html",
+    "title": "Programming Structures",
+    "section": "",
+    "text": "Python includes basic control flow structures such as conditionals and loops.\n\n\nConditional statements control the flow of execution based on conditions.\n\n\n\n\n\n\n\n\nOnly sword or arrow can defeat the beast.\n\n\n\n\n\n\n\n\n\n\nLoops are used to iterate over a sequence of items.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWrite a program that prints the first 10 numbers in the Fibonacci sequence. Recall that the Fibonacci sequence starts with 0 and 1, and each subsequent number is the sum of the two preceding numbers. Therefore, the first 10 numbers in the Fibonacci sequence are 0 1 1 2 3 5 8 13 21 34.",
+    "crumbs": [
+      "Basics",
+      "Programming Structures"
+    ]
+  },
+  {
+    "objectID": "prog_structures.html#control-flow",
+    "href": "prog_structures.html#control-flow",
+    "title": "Programming Structures",
+    "section": "",
+    "text": "Python includes basic control flow structures such as conditionals and loops.\n\n\nConditional statements control the flow of execution based on conditions.\n\n\n\n\n\n\n\n\nOnly sword or arrow can defeat the beast.\n\n\n\n\n\n\n\n\n\n\nLoops are used to iterate over a sequence of items.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWrite a program that prints the first 10 numbers in the Fibonacci sequence. Recall that the Fibonacci sequence starts with 0 and 1, and each subsequent number is the sum of the two preceding numbers. Therefore, the first 10 numbers in the Fibonacci sequence are 0 1 1 2 3 5 8 13 21 34.",
+    "crumbs": [
+      "Basics",
+      "Programming Structures"
+    ]
+  },
+  {
+    "objectID": "prog_structures.html#functions",
+    "href": "prog_structures.html#functions",
+    "title": "Programming Structures",
+    "section": "2 Functions",
+    "text": "2 Functions\nFunctions are reusable blocks of code that perform a specific task. We write functions to avoid repetition and improve code readability.\n\n\n\n\n\n\n\nExercise ☕📝\nWrite a function cal_interest(principal, rate, years) that takes in the principal amount, annual interest rate, and number of years, and returns the total amount of interest. Assume annual compounding.",
+    "crumbs": [
+      "Basics",
+      "Programming Structures"
+    ]
+  },
+  {
+    "objectID": "prog_structures.html#exception-handling",
+    "href": "prog_structures.html#exception-handling",
+    "title": "Programming Structures",
+    "section": "3 Exception Handling",
+    "text": "3 Exception Handling\nException handling ensures robust code execution.",
+    "crumbs": [
+      "Basics",
+      "Programming Structures"
+    ]
+  },
+  {
+    "objectID": "numpy.html",
+    "href": "numpy.html",
+    "title": "Numpy",
+    "section": "",
+    "text": "Numpy is a Python library for numerical computing. It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays. Numpy is the foundation of many other Python libraries for scientific computing, such as Pandas, Scipy, and Matplotlib.\nIn this section, we will cover the basics of Numpy, including how to create arrays, perform mathematical operations, and manipulate array data.",
+    "crumbs": [
+      "Data Analysis",
+      "Numpy"
+    ]
+  },
+  {
+    "objectID": "numpy.html#creating-arrays",
+    "href": "numpy.html#creating-arrays",
+    "title": "Numpy",
+    "section": "Creating Arrays",
+    "text": "Creating Arrays",
+    "crumbs": [
+      "Data Analysis",
+      "Numpy"
+    ]
+  },
+  {
+    "objectID": "numpy.html#array-properties",
+    "href": "numpy.html#array-properties",
+    "title": "Numpy",
+    "section": "Array Properties",
+    "text": "Array Properties",
+    "crumbs": [
+      "Data Analysis",
+      "Numpy"
+    ]
+  },
+  {
+    "objectID": "numpy.html#indexing-and-slicing",
+    "href": "numpy.html#indexing-and-slicing",
+    "title": "Numpy",
+    "section": "Indexing and Slicing",
+    "text": "Indexing and Slicing",
+    "crumbs": [
+      "Data Analysis",
+      "Numpy"
+    ]
+  },
+  {
+    "objectID": "numpy.html#modifying-arrays",
+    "href": "numpy.html#modifying-arrays",
+    "title": "Numpy",
+    "section": "Modifying Arrays",
+    "text": "Modifying Arrays",
+    "crumbs": [
+      "Data Analysis",
+      "Numpy"
+    ]
+  },
+  {
+    "objectID": "numpy.html#mathematical-operations",
+    "href": "numpy.html#mathematical-operations",
+    "title": "Numpy",
+    "section": "Mathematical Operations",
+    "text": "Mathematical Operations",
+    "crumbs": [
+      "Data Analysis",
+      "Numpy"
+    ]
+  },
+  {
+    "objectID": "numpy.html#matrix-operations",
+    "href": "numpy.html#matrix-operations",
+    "title": "Numpy",
+    "section": "Matrix Operations",
+    "text": "Matrix Operations",
+    "crumbs": [
+      "Data Analysis",
+      "Numpy"
+    ]
+  },
+  {
+    "objectID": "numpy.html#aggregation-functions",
+    "href": "numpy.html#aggregation-functions",
+    "title": "Numpy",
+    "section": "Aggregation Functions",
+    "text": "Aggregation Functions",
+    "crumbs": [
+      "Data Analysis",
+      "Numpy"
+    ]
+  },
+  {
+    "objectID": "numpy.html#reshaping-and-stacking",
+    "href": "numpy.html#reshaping-and-stacking",
+    "title": "Numpy",
+    "section": "Reshaping and Stacking",
+    "text": "Reshaping and Stacking",
+    "crumbs": [
+      "Data Analysis",
+      "Numpy"
+    ]
+  },
+  {
+    "objectID": "numpy.html#boolean-masking",
+    "href": "numpy.html#boolean-masking",
+    "title": "Numpy",
+    "section": "Boolean Masking",
+    "text": "Boolean Masking",
+    "crumbs": [
+      "Data Analysis",
+      "Numpy"
+    ]
+  },
+  {
+    "objectID": "numpy.html#broadcasting",
+    "href": "numpy.html#broadcasting",
+    "title": "Numpy",
+    "section": "Broadcasting",
+    "text": "Broadcasting",
+    "crumbs": [
+      "Data Analysis",
+      "Numpy"
+    ]
+  },
+  {
+    "objectID": "numpy.html#exercise",
+    "href": "numpy.html#exercise",
+    "title": "Numpy",
+    "section": "Exercise",
+    "text": "Exercise\n\nExercise 1\nComplete the following tasks using NumPy based on what you’ve learned:\n\nCreate a 4x4 NumPy array with random integers between 1 and 100.\nReplace all even numbers in the array with -1.\nCompute the sum of each row and store it in a new array.\nReshape the original 4x4 array into a 2x8 array.\nFind the maximum value in the reshaped array.\n\n\nExerciseSolution\n\n\n\n\n\n\n\n\n\n\n\nimport numpy as np\n\n# Step 1: Create a 4x4 array with random integers between 1 and 100\narr = np.random.randint(1, 101, (4, 4))\nprint(\"Original Array:\\n\", arr)\n\n# Step 2: Replace even numbers with -1\narr[arr % 2 == 0] = -1\nprint(\"Modified Array:\\n\", arr)\n\n# Step 3: Compute row-wise sum\nrow_sums = np.sum(arr, axis=1)\nprint(\"Row sums:\", row_sums)\n\n# Step 4: Reshape into 2x8\nreshaped_arr = arr.reshape(2, 8)\nprint(\"Reshaped Array:\\n\", reshaped_arr)\n\n# Step 5: Find maximum value in reshaped array\nmax_value = np.max(reshaped_arr)\nprint(\"Maximum value:\", max_value)\n\n\n\n\n\n\nExercise 2\nThe Mini Snakes and Ladders game we discussed in the last section can be solved mathematically using a Markov chain. We can setup a transition matrix to represent the probabilities of moving from one state to another. The states are the squares on the board, and the transitions are determined by the roll of a die and the presence of snakes and ladders. The formula to solve the expected number of rolls to finish the game is the sum of the first row of the following matrix \\(P\\).\n\\[\nP = (I - Q)^{-1},\n\\]\nwhere \\(I\\) is the identity matrix and \\(Q\\) is the transition matrix. Therefore \\(P\\) is the inverse of \\(I - Q\\).\nIn Markov chain theory, \\(P\\) is called the fundamental matrix. An entry \\(P_{ij}\\) is the expected number of times the process is in state \\(j\\) given that it started in state \\(i\\). Therefore, the sum of the first row of \\(P\\) represents the expected number of steps before absorption (i.e., end of game), starting from the first state (i.e., the number 0 square.)\nFind the expected number of rolls to finish the game using Numpy.\n\nExerciseSolution\n\n\n\n\n\n\n\n\n\n\n\nimport numpy as np\n\n# Transition matrix\nQ = np.array([\n    # each row or col corresponds to the\n    # a number square on the board (no need for 4, 8 and 9)\n    #0,   1,   2,   3,   5,   6,   7\n    [0, 1/6, 1/6, 1/6, 1/6, 1/6, 1/6], #0\n    [0,   0, 1/6, 1/6, 1/6, 1/6, 2/6], #1\n    [0,   0, 1/6, 1/6, 1/6, 1/6, 2/6], #2\n    [0,   0, 1/6,   0, 1/6, 1/6, 2/6], #3\n    [0,   0, 2/6,   0,   0, 1/6, 2/6], #5\n    [0,   0, 2/6,   0,   0, 1/6, 2/6], #6\n    [0,   0, 2/6,   0, 1/6, 1/6, 1/6]  #7\n])\n\n# Create identity matrix\nI = np.eye(7)\n\n# solve for P\nP = np.linalg.inv(I - Q)\n\n# Calculate expected number of rolls\nexpected_rolls = np.sum(P[0, :])\n\n# Print the expected number of rolls\nprint(\"Expected number of rolls to finish the game:\", expected_rolls)",
+    "crumbs": [
+      "Data Analysis",
+      "Numpy"
+    ]
+  },
+  {
+    "objectID": "data_structures.html",
+    "href": "data_structures.html",
+    "title": "Data Structures",
+    "section": "",
+    "text": "Data structures are ways of organizing and storing data so that it can be accessed and modified efficiently. Python provides several built-in data structures, such as lists, tuples, sets, and dictionaries, to work with data effectively. Before we get into data structures, let’s start with Python’s basic data types.\n\n\nVariables store data in Python. Python is a dynamically typed language, meaning you don’t need to specify the data type when declaring a variable. (Moreover, the type of the variable is allowed to change over its lifetime.)\n\n\n\n\n\n\n\n\n\nPython has several built-in data types.\n\nInteger: Whole numbers without a decimal point.\nFloat: Numbers with a decimal point.\nString: Sequence of characters enclosed in quotes.\nBoolean: Represents True or False values.\n\nYou can use the type() function to check the data type of a variable.\n\n\n\n\n\n\nIt’s possible to convert between data types using type casting.",
+    "crumbs": [
+      "Basics",
+      "Data Structures"
+    ]
+  },
+  {
+    "objectID": "data_structures.html#getting-started",
+    "href": "data_structures.html#getting-started",
+    "title": "Data Structures",
+    "section": "",
+    "text": "Data structures are ways of organizing and storing data so that it can be accessed and modified efficiently. Python provides several built-in data structures, such as lists, tuples, sets, and dictionaries, to work with data effectively. Before we get into data structures, let’s start with Python’s basic data types.\n\n\nVariables store data in Python. Python is a dynamically typed language, meaning you don’t need to specify the data type when declaring a variable. (Moreover, the type of the variable is allowed to change over its lifetime.)\n\n\n\n\n\n\n\n\n\nPython has several built-in data types.\n\nInteger: Whole numbers without a decimal point.\nFloat: Numbers with a decimal point.\nString: Sequence of characters enclosed in quotes.\nBoolean: Represents True or False values.\n\nYou can use the type() function to check the data type of a variable.\n\n\n\n\n\n\nIt’s possible to convert between data types using type casting.",
+    "crumbs": [
+      "Basics",
+      "Data Structures"
+    ]
+  },
+  {
+    "objectID": "data_structures.html#built-in-data-structures",
+    "href": "data_structures.html#built-in-data-structures",
+    "title": "Data Structures",
+    "section": "2. Built-in Data Structures",
+    "text": "2. Built-in Data Structures\nPython provides several built-in data structures for storing and managing data.\n\n2.1 Lists\nLists are ordered, mutable collections of items.\n\n\n\n\n\n\n\nExercise ☕📝\n\n\n\n\n\n\n\n\n\n2.2 Tuples\nTuples are ordered, immutable collections of items.\n\n\n\n\n\n\n\nExercise ☕📝\n\n\n\n\n\n\n\n\n\n2.3 Sets\nSets are unordered collections of unique items.\n\n\n\n\n\n\n\nExercise ☕📝\nFind unqiue words in each of the two sentences\n\n\n\n\n\n\n\n\n\n2.4 Dictionaries\nDictionaries are unordered collections of key-value pairs.\n\n\n\n\n\n\n\nExercise ☕📝\nCreate a dictionary of three students with their names as keys and their numerical scores as values. Write a program to find and print the student with the highest score.",
+    "crumbs": [
+      "Basics",
+      "Data Structures"
+    ]
+  },
+  {
+    "objectID": "mini_snl.html",
+    "href": "mini_snl.html",
+    "title": "Snakes and Ladders",
+    "section": "",
+    "text": "With the basic data and programming structures in Python, we are ready to write some code to solve interesting questions.\nHere is a question for you. Have you ever wondered how many rolls of the dice it would take on average to finish a game of Snakes and Ladders? In this section, we will create a simple simulation of the game to find out!",
+    "crumbs": [
+      "Basics",
+      "Snakes and Ladders"
+    ]
+  },
+  {
+    "objectID": "mini_snl.html#sec-snl",
+    "href": "mini_snl.html#sec-snl",
+    "title": "Snakes and Ladders",
+    "section": "",
+    "text": "With the basic data and programming structures in Python, we are ready to write some code to solve interesting questions.\nHere is a question for you. Have you ever wondered how many rolls of the dice it would take on average to finish a game of Snakes and Ladders? In this section, we will create a simple simulation of the game to find out!",
+    "crumbs": [
+      "Basics",
+      "Snakes and Ladders"
+    ]
+  },
+  {
+    "objectID": "mini_snl.html#game-rules",
+    "href": "mini_snl.html#game-rules",
+    "title": "Snakes and Ladders",
+    "section": "Game Rules",
+    "text": "Game Rules\nThis is a single player mini snakes and ladders game (see the figure). You start at square 0 and move to square 9 following the rules below:\n\nRoll a 6-sided die and move forward the number of squares shown on the die.\nIf you land on a square with a snake’s head, move back to the square with the snake’s tail.\nIf you land on a square with a ladder’s bottom, move forward to the square at the top of the ladder.\nIf you roll a number that would move you beyond square 9, move backwards from square 9 for the remaining steps.\nThe game ends when you reach square 9.\n\n\n\n\nMini Snakes and Ladders",
+    "crumbs": [
+      "Basics",
+      "Snakes and Ladders"
+    ]
+  },
+  {
+    "objectID": "mini_snl.html#question",
+    "href": "mini_snl.html#question",
+    "title": "Snakes and Ladders",
+    "section": "Question",
+    "text": "Question\nWe want to find out the average number of rolls it takes to finish the game.",
+    "crumbs": [
+      "Basics",
+      "Snakes and Ladders"
+    ]
+  },
+  {
+    "objectID": "mini_snl.html#simulation",
+    "href": "mini_snl.html#simulation",
+    "title": "Snakes and Ladders",
+    "section": "Simulation",
+    "text": "Simulation\nHow would you solve this problem?\nOne way is to simulate the game many times and calculate the average number of rolls it takes to finish the game. Let’s write a Python program to simulate the game. We will start by writing code for a single game run and then extend it to simulate multiple runs.\n(You can also solve the problem mathematically. See this Numberphile video for more details: The Beautiful Math of Snakes and Ladders. In fact, this exercise is inspired by the video.)\n\nSingle Game Run\nWe will use the random library to simulate the dice rolls, and set a random seed to ensure reproducibility. We will write a function play_game() that simulates a single game run and returns the number of rolls it takes to finish the game 🐍🎲.\n\nExerciseSolution\n\n\n\n\n\n\n\n\n\n\n\nimport random\nrandom.seed(1)\n\ndef play_game():\n    # initialize the starting position and number of rolls\n    position = 0\n    rolls = 0\n    \n    while position &lt; 9:\n        \n        # roll and count the number of rolls\n        roll = random.randint(1, 6)\n        rolls = rolls + 1\n        \n        # if the roll moves the player beyond square 9\n        if position + roll &gt; 9:\n            position = 9 - (position + roll - 9)\n        else:\n            position = position + roll\n        \n        # check for snakes and ladders\n        # snake's head at 8\n        if position == 8:\n            position = 2\n        # ladder's bottome at 4\n        elif position == 4:\n            position = 7\n    return rolls\n\n# run the game twice\nprint(play_game())\nprint(play_game())\n\n\n\n\n\n\nMultiple Game Runs\nNow that we have a function to play the game. We will simulate the game multiple times and store the number of rolls it takes to finish each game in a list. We will then calculate the average number of rolls and plot a histogram of the number of rolls. We will use the matplotlib library to plot the histogram.\n\nExerciseSolution\n\n\n\n\n\n\n\n\n\n\n\n# define the number of simulations\nnum_sim = 10000\n\n# initialize an empty list to store \n# the number of rolls for each simulation\nnum_rolls = []\n\n# simulate and append the number of rolls \n# for each simulation to the list\nfor _ in range(num_sim):\n    num_rolls.append(play_game())\n\n# the above code can be written more concisely\n# using list comprehension\n# num_rolls = [play_game() for _ in range(num_sim)]\n\n# calculate the average number of rolls\navg_rolls = sum(num_rolls) / num_sim\nprint(avg_rolls)\n\n# plot the histogram of the number of rolls\nimport matplotlib.pyplot as plt\nplt.hist(num_rolls, \n         bins=range(1, max(num_rolls)+2), \n         edgecolor='black')\nplt.title('Number of rolls to finish the game')\nplt.xlabel('Number of rolls')\nplt.ylabel('Frequency')\nplt.show()",
+    "crumbs": [
+      "Basics",
+      "Snakes and Ladders"
+    ]
+  },
+  {
+    "objectID": "pandas.html",
+    "href": "pandas.html",
+    "title": "Pandas",
+    "section": "",
+    "text": "Pandas is a powerful data manipulation library for Python. It provides data structures and functions to efficiently manipulate large 2D tabular datasets.",
+    "crumbs": [
+      "Data Analysis",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "pandas.html#loading-data",
+    "href": "pandas.html#loading-data",
+    "title": "Pandas",
+    "section": "Loading Data",
+    "text": "Loading Data",
+    "crumbs": [
+      "Data Analysis",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "pandas.html#data-exploration",
+    "href": "pandas.html#data-exploration",
+    "title": "Pandas",
+    "section": "Data Exploration",
+    "text": "Data Exploration",
+    "crumbs": [
+      "Data Analysis",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "pandas.html#handling-missing-values",
+    "href": "pandas.html#handling-missing-values",
+    "title": "Pandas",
+    "section": "Handling Missing Values",
+    "text": "Handling Missing Values",
+    "crumbs": [
+      "Data Analysis",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "pandas.html#checking-unique-values",
+    "href": "pandas.html#checking-unique-values",
+    "title": "Pandas",
+    "section": "Checking Unique Values",
+    "text": "Checking Unique Values",
+    "crumbs": [
+      "Data Analysis",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "pandas.html#selecting-columns",
+    "href": "pandas.html#selecting-columns",
+    "title": "Pandas",
+    "section": "Selecting Columns",
+    "text": "Selecting Columns",
+    "crumbs": [
+      "Data Analysis",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "pandas.html#data-filtering",
+    "href": "pandas.html#data-filtering",
+    "title": "Pandas",
+    "section": "Data Filtering",
+    "text": "Data Filtering\n\n\n\n\n\n\n\nExercise ☕📝\nFind all aliens with medium size but weights more than 300kg.",
+    "crumbs": [
+      "Data Analysis",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "pandas.html#creating-new-columns",
+    "href": "pandas.html#creating-new-columns",
+    "title": "Pandas",
+    "section": "Creating New Columns",
+    "text": "Creating New Columns",
+    "crumbs": [
+      "Data Analysis",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "pandas.html#sorting-data",
+    "href": "pandas.html#sorting-data",
+    "title": "Pandas",
+    "section": "Sorting Data",
+    "text": "Sorting Data",
+    "crumbs": [
+      "Data Analysis",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "pandas.html#aggregate-by-group",
+    "href": "pandas.html#aggregate-by-group",
+    "title": "Pandas",
+    "section": "Aggregate by Group",
+    "text": "Aggregate by Group\n\n\n\n\n\n\nYou can find a visualization of this operation here. (Note that the visualizatoin page may take a few seconds to load.)\n\nExercise ☕📝\nCalculate the average weight of aliens by size.",
+    "crumbs": [
+      "Data Analysis",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "pandas.html#chain-operations",
+    "href": "pandas.html#chain-operations",
+    "title": "Pandas",
+    "section": "Chain Operations",
+    "text": "Chain Operations\n\n\n\n\n\n\nYou can find a step-by-step visualization of this chained operatoin here. (Note that the visualizatoin page may take a few seconds to load.)\n\nExercise ☕📝\nFor all large sized aliens, what are the longest lifespan for each habitat.",
+    "crumbs": [
+      "Data Analysis",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "pandas.html#merging-data",
+    "href": "pandas.html#merging-data",
+    "title": "Pandas",
+    "section": "Merging Data",
+    "text": "Merging Data\nThere are many ways to merge datasets. We will only cover one often used merge called left merge (or left join) in this example. A left merge combines two datasets based on a common column, keeping all rows from the left dataset and only matching rows from the right dataset.\n\n\n\n\n\n\nYou can find a visualization of this merge operation here. (Note that the visualizatoin page may take a few seconds to load.)",
+    "crumbs": [
+      "Data Analysis",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "regression.html",
+    "href": "regression.html",
+    "title": "Regression Analysis",
+    "section": "",
+    "text": "Work in progress.",
+    "crumbs": [
+      "Data Analysis",
+      "Regression Analysis"
+    ]
+  }
+]

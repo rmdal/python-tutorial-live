@@ -1,0 +1,264 @@
+---
+title: Data Structures
+format: live-html
+toc: true
+---
+
+## 1. Getting Started
+
+Data structures are ways of organizing and storing data so that it can be accessed and modified efficiently. Python provides several built-in data structures, such as lists, tuples, sets, and dictionaries, to work with data effectively. Before we get into data structures, let's start with Python's basic data types.
+
+### 1.1 Variables
+
+Variables store data in Python. Python is a dynamically typed language, meaning you don't need to specify the data type when declaring a variable. (Moreover, the type of the variable is allowed to change over its lifetime.)
+
+```{pyodide}
+#| caption: Variable
+# Assigning values to variables
+name = "Alice"   # String
+age = 25         # Integer
+height = 5.6     # Float
+is_student = True  # Boolean
+
+print(name, age, height, is_student)
+```
+
+### 1.2 Data Types
+Python has several built-in data types.
+
+* Integer: Whole numbers without a decimal point.
+* Float: Numbers with a decimal point.
+* String: Sequence of characters enclosed in quotes.
+* Boolean: Represents True or False values.
+
+You can use the type() function to check the data type of a variable.
+
+```{pyodide}
+#| caption: Data Type
+# Assigning values to variables
+name = "Alice"   # String
+age = 25         # Integer
+height = 5.6     # Float
+is_student = True  # Boolean
+
+# Checking data types
+print(type(name))    # Output: <class 'str'>
+print(type(age))     # Output: <class 'int'>
+print(type(height))  # Output: <class 'float'>
+print(type(is_student))  # Output: <class 'bool'>
+```
+
+It's possible to convert between data types using type casting.
+
+```{pyodide}
+#| caption: Type Casting
+# Converting data types
+num = "10"
+num_int = int(num)  # Convert string to integer
+print(type(num_int))  # Output: <class 'int'>
+```
+
+
+## 2. Built-in Data Structures
+
+Python provides several built-in data structures for storing and managing data.
+
+### 2.1 Lists
+
+Lists are ordered, mutable collections of items.
+
+```{pyodide}
+#| caption: List
+# Creating a list
+fruits = ["apple", "banana", "cherry"]
+
+# Accessing elements
+print(fruits[0])  # Output: apple
+
+# Modifying elements
+fruits[1] = "blueberry"
+
+# Adding elements
+fruits.append("orange")
+
+# Removing elements
+fruits.remove("cherry")
+
+# Iterating through a list
+for fruit in fruits:
+    print(fruit)
+```
+
+#### Exercise ☕📝
+```{pyodide}
+#| exercise: ex_list
+#| caption: List Exercise
+# List of favorite sci-fi movies
+movies = ["Inception", "Interstellar", "The Matrix"]
+
+# Use .append() to add a new movie to the list
+
+
+# Use .remove() to remove your least favorite movie from the list
+
+
+# Print your most favorite movie in the list
+print("My favorite movie in the list is", ______)
+
+
+# Sort the movie list in alphabetical order
+# hint: use the .sort() method for sorting
+______
+
+# Print the sorted movie list
+print("Sorted movie list:", movies)
+```
+
+
+### 2.2 Tuples
+
+Tuples are ordered, immutable collections of items.
+
+```{pyodide}
+#| caption: Tuple
+# Creating a tuple
+colors = ("red", "green", "blue")
+
+# Accessing elements
+print(colors[1])  # Output: green
+
+# Checking if green is in the tuple
+print("green" in colors)  # Output: True
+
+# Changing an element will raise an error
+# colors[1] = "yellow"
+
+# Iterating through a tuple
+for color in colors:
+    print(color)
+
+# Unpacking a tuple
+a, b, c = colors
+print(c, b, a)  # Output: blue green red 
+```
+
+#### Exercise ☕📝
+```{pyodide}
+#| exercise: ex_tuple
+#| caption: Tuple Exercise
+# Create two tuples of fruits
+tropical_fruits = ("mango", "pineapple")
+citrus_fruits = ("orange", "lemon")
+
+# Concatenate the two tuples into a single tuple
+# Hint: use the + operator
+all_fruits = ______
+
+# Print all the fruits in the tuple
+print(all_fruits)
+```
+
+### 2.3 Sets
+
+Sets are unordered collections of unique items.
+
+```{pyodide}
+#| caption: Set
+# Creating a set
+unique_numbers = {1, 2, 3, 4, 4, 5}
+print(unique_numbers)  # Output: {1, 2, 3, 4, 5}
+
+# Adding elements
+unique_numbers.add(6)
+print(unique_numbers)  # Output: {1, 2, 3, 4, 5, 6}
+
+# Removing elements
+unique_numbers.discard(2)
+print(unique_numbers)  # Output: {1, 3, 4, 5, 6}
+
+# Intersecting two sets
+set1 = {1, 2, 3}
+set2 = {2, 3, 4}
+intersection = set1 & set2 # or intersection = set1.intersection(set2)
+print(intersection)  # Output: {2, 3}
+```
+
+#### Exercise ☕📝
+Find unqiue words in each of the two sentences
+
+```{pyodide}
+#| exercise: ex_set
+#| caption: Set Exercise
+# Find unqiue words in each of the two sentences
+
+sentence1 = "Python is fun and powerful"
+sentence2 = "Python is powerful and easy"
+
+# Split each sentences into word set
+words1 = set(sentence1.lower().split())
+words2 = ______
+
+# Find the unique words in each sentence
+# Hint: use the - operator for set difference
+unique_words1 = ______
+unique_words2 = ______
+
+# Print the unique words in each sentence
+print("Unique words in sentence 1:", unique_words1)
+print("Unique words in sentence 2:", unique_words2)
+```
+
+### 2.4 Dictionaries
+
+Dictionaries are unordered collections of key-value pairs.
+
+```{pyodide}
+#| caption: Dictionary
+# Creating a dictionary
+student = {
+    "name": "Alice",
+    "age": 25,
+    "grade": "A"
+}
+
+# Accessing values
+print(student["name"])  # Output: Alice
+
+# Accessing value with get() method
+print(student.get("age"))  # Output: 25
+
+# Modifying values
+student["grade"] = "A+"
+
+# Adding new key-value pairs
+student["city"] = "New York"
+
+# Removing a key-value pair
+del student["age"]
+
+# Iterating through a dictionary
+for key, value in student.items():
+    print(f"{key}: {value}")
+```
+
+#### Exercise ☕📝
+Create a dictionary of three students with their names as keys and their *numerical* scores as values. Write a program to find and print the student with the highest score.
+
+```{pyodide}
+#| exercise: ex_dict
+#| caption: Dictionary Exercise
+# Create a student dictionary
+students = {
+    ______: ______,
+    ______: ______,
+    ______: ______
+}
+
+# Find the student with the highest score
+# Hint: use the max() function with its key parameter.
+# https://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary
+top_student = max(______, key=______)
+
+# Print the name of the top student and their score
+print(f"Top student: {top_student} with score {students[top_student]}")
+```

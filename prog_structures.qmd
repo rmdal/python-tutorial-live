@@ -1,0 +1,147 @@
+---
+title: Programming Structures
+format: live-html
+toc: true
+---
+
+## 1. Control Flow
+
+Python includes basic control flow structures such as conditionals and loops.
+
+### 1.1 Conditional Statements
+
+Conditional statements control the flow of execution based on conditions.
+
+```{pyodide}
+#| caption: if-else
+x = 10
+if x > 5:
+    print("x is greater than 5")
+elif x == 5:
+    print("x is equal to 5")
+else:
+    print("x is less than 5")
+```
+
+#### Exercise ☕📝
+Only *sword* or *arrow* can defeat the beast.
+
+```{pyodide}
+#| exercise: ex_conditional
+#| caption: Conditional Exercise
+import random
+
+# Hero classes and their actions
+heroes = ["Knight 🏰", "Archer 🏹"]sword
+actions = {
+    "Knight 🏰": ["sword", "shield", "lance"],
+    "Archer 🏹": ["arrow", "trap", "dodge"],
+}
+
+# Assign a random hero
+hero = random.choice(heroes)
+
+# Assign a random action
+action = random.choice(______)
+
+# Print adventure
+print(f"You are a {hero}!")
+print("A wild beast attacks! 🐺")
+print(f"You use {action.upper()}!")
+
+# Determine fate
+# Remember, only "sword" or "arrow" can defeat the beast.
+if ______ in [______, ______]:
+    print("The beast is defeated! 🎉")
+______:
+    print("You are overwhelmed. Game over. 💀")
+```
+
+### 1.2 Loops
+
+Loops are used to iterate over a sequence of items.
+
+#### 1.2.1 For Loop
+
+```{pyodide}
+#| caption: For Loop
+for i in range(5):
+    print(i)  # Output: 0, 1, 2, 3, 4
+```
+
+#### 1.2.2 While Loop
+
+```{pyodide}
+#| caption: While Loop
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+```
+
+#### Exercise ☕📝
+Write a program that prints the first 10 numbers in the Fibonacci sequence. Recall that the Fibonacci sequence starts with 0 and 1, and each subsequent number is the sum of the two preceding numbers. Therefore, the first 10 numbers in the Fibonacci sequence are 0 1 1 2 3 5 8 13 21 34.
+
+```{pyodide}
+#| exercise: ex_loop
+#| caption: Loop Exercise
+# Print the first 10 numbers in the Fibonacci sequence.
+a, b = 0, 1
+for _ in range(10):
+    print(a, end=" ")
+        
+    # there is oneliner here but let's do it in 3 steps first
+    # 1. store a in temp
+    temp = ______
+
+    # 2. update a to b
+    a = ______
+
+    # 3. update b to ???
+    b = ______
+
+    # Once you get the 3-step approach correct, try to see if you
+    # can replace the above 3 steps with a single line of code.
+    # Hint: a, b = ______, ______
+
+```
+
+## 2 Functions
+
+Functions are reusable blocks of code that perform a specific task. We write functions to avoid repetition and improve code readability.
+
+```{pyodide}
+#| caption: Function
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Alice"))  # Output: Hello, Alice!
+```
+
+#### Exercise ☕📝
+Write a function `cal_interest(principal, rate, years)` that takes in the principal amount, annual interest rate, and number of years, and returns the total amount of interest. Assume annual compounding.
+
+```{pyodide}
+#| exercise: ex_function
+#| caption: Function Exercise
+def cal_interest(______, ______, years):
+    # Calculate the total amount of interest
+    interest = ______
+    return interest
+print(cal_interest(1000, 0.05, 2))  # Output: 102.5
+```
+
+
+## 3 Exception Handling
+
+Exception handling ensures robust code execution.
+
+```{pyodide}
+#| caption: Exception Handling
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+finally:
+    print("Execution completed")
+```

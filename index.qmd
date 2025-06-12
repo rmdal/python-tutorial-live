@@ -1,0 +1,45 @@
+---
+title: Introduction
+format: live-html
+toc: true
+---
+
+Python is a versatile and beginner-friendly programming language. This tutorial will cover the fundamentals of Python programming, with a particular focus on data analysis tasks.
+
+We first review the basic data and programming structures in Python, most of which should be familiar to you from CSC108. We then cover three basic topics to get you started with data analysis in Python:
+
+1. Work with arrays (using the [NumPy](https://numpy.org/) library).
+1. Process tabular datasets (using the [Pandas](https://pandas.pydata.org/) library).
+2. Perform a simple regression analysis.
+
+This tutorial site is somewhat "special" as you can try out the code snippets in the tutorial and see the results immediately in the browser.
+
+::: {.callout-note}
+As a result, you may find the site loads slowly because it needs to load the Python interpreter, certain libraries and datasets, so please be patient.
+:::
+
+As an example, let's start with a simple "Hello, World!" program.
+
+```{pyodide}
+# Printing Hello World
+print("Hello, World!")
+```
+
+Click the "Run Code" button to run the code snippet. You could also edit the code in the code block. For example, print a different message if you like. If you want to reset the code snippet back to the original, click the "Start Over" button.
+
+You will also see exercises throughout the tutorial to help you practice what you've learned.
+
+#### Exercise ☕📝
+Print the message "Python is fun!" in all uppercase and add two more exclamation marks at the end.
+```{pyodide}
+#| exercise: ex_intro
+#| caption: String Exercise
+# Print the below message in all uppercase, and 
+# add two more !s at the end.
+message = "Python is fun!"
+
+# Fill in the blank to print the message in uppercase.
+# Hint 1: Use the .upper() method.
+# Hint 2: Use the + operator to add two more !s.
+print(______)  
+```

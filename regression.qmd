@@ -1,0 +1,10 @@
+---
+title: Regression Analysis
+format: live-html
+toc: true
+pyodide:
+  resources:
+    - https://raw.githubusercontent.com/tdmdal/datasets-teaching/main/mag7/mag7.csv
+---
+
+Work in progress.

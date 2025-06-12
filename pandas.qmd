@@ -1,0 +1,213 @@
+---
+title: Pandas
+format: live-html
+toc: true
+resources:
+  - "data"
+pyodide:
+  resources:
+    - data/aliens.csv
+---
+
+[Pandas](https://pandas.pydata.org/) is a powerful data manipulation library for Python. It provides data structures and functions to efficiently manipulate large 2D tabular datasets.
+
+## Loading Data
+```{pyodide}
+# import pandas library
+import pandas as pd
+
+# load data from csv file
+aliens = pd.read_csv("data/aliens.csv")
+
+# display first 5 rows
+print(aliens.head())
+```
+
+## Data Exploration
+```{pyodide}
+# display number of rows and columns
+print("Shape (row, col):", aliens.shape)
+
+# print a dividing line between outputs
+print("-----------------------")
+
+# display data types of each column
+print("Column info:\n", aliens.dtypes)
+
+# print a dividing line between outputs
+print("-----------------------")
+
+# display summary statistics for numerical columns
+print("Summary statistics:\n", aliens.describe())
+```
+
+## Handling Missing Values
+```{pyodide}
+# check for missing value
+print("Number of missing values in each col:\n", 
+      aliens.isnull().sum())
+
+# print a dividing line between outputs
+print("-----------------------")
+
+print("Number of rows with (at least one) missing value:", 
+      (aliens.isna().sum(axis=1) > 0).sum())
+
+# drop rows with missing values
+aliens_clean = aliens.dropna().copy()
+
+# print a dividing line between outputs
+print("-----------------------")
+
+# display number of rows and columns after cleaning
+print("(row, col) after dropping rows with missing values:",
+      aliens_clean.shape)
+```
+
+## Checking Unique Values
+```{pyodide}
+# check if the species column has unique values
+print("Species column has unique values:", 
+      aliens_clean["species"].is_unique)
+
+# print a dividing line between outputs
+print("-----------------------")
+
+# display number of unique values in each column
+print("Number of unique values in each col:\n", 
+      aliens_clean.nunique())
+
+# print a dividing line between outputs
+print("-----------------------")
+
+# display unique values in a column
+print("Unique habitat values:\n", 
+      aliens_clean["habitat"].unique())
+```
+
+## Selecting Columns
+```{pyodide}
+# select specific columns
+aliens_3cols = aliens_clean[["species", "lifespan", "weight"]]
+print(aliens_3cols.head())
+```
+
+## Data Filtering
+```{pyodide}
+# filter in only species with lifespan greater than 100 years
+aliens_long_lived = aliens_clean.loc[aliens_clean["lifespan"] > 100]
+print(aliens_long_lived.head())
+```
+
+#### Exercise ☕📝
+Find all aliens with medium size but weights more than 300kg.
+
+```{pyodide}
+#| envir: global
+#| exercise: ex_filtering
+#| caption: Filtering Exercise
+# Filter in only medium-sized aliens with weight greater than 300kg
+# Hint: use (condition1) & (condition2) to combine multiple conditions
+aliens_medium_heavy = ______
+print(aliens_medium_heavy)
+```
+
+## Creating New Columns
+```{pyodide}
+# create a new column for weight in pounds
+aliens_clean["weight_lbs"] = aliens_clean["weight"] * 2.20462
+print(aliens_clean.head())
+```
+
+## Sorting Data
+```{pyodide}
+# sort data by lifespan in descending order
+aliens_sorted_by_lifespan = aliens_clean.sort_values("lifespan", ascending=False)
+print(aliens_sorted_by_lifespan.head())
+```
+
+## Aggregate by Group
+```{pyodide}
+# group data by habitat and calculate average lifespan
+avg_lifespan_by_habitat = aliens_clean.groupby("habitat")["lifespan"].mean()
+print(avg_lifespan_by_habitat)
+```
+You can find a visualization of this operation [here](https://pandastutor.com/vis.html#code=import%20pandas%20as%20pd%0Aimport%20io%0A%0Acsv%20%3D%20'''%0Aspecies,habitat,lifespan,size,weight%0AZentar,Jungle,120,Large,300%0AGorlax,Desert,85,Medium,150%0AVexor,Ocean,95,Small,50%0APlutoid,Mountain,150,Medium,180%0AZyphor,Underground,200,Large,500%0AXeltron,Sky,75,Small,40%0AMentar,Jungle,110,Medium,280%0ADraknor,Ocean,90,Small,140%0ASeltrix,Desert,130,Large,320%0AQuorin,Sky,180,Medium,400%0ATarnok,Underground,160,Large,450%0AJenthos,Mountain,140,Small,60%0AKrylon,Jungle,125,Medium,310%0AOrbos,Ocean,105,Small,200%0AVeltra,Desert,95,Large,330%0AZylen,Sky,80,Medium,120%0AXyron,Jungle,115,Medium,290%0ABlentor,Desert,95,Small,160%0AVorlak,Ocean,85,Large,55%0ATreznor,Mountain,145,Small,190%0AYelkor,Underground,210,Large,510%0AZenthos,Sky,70,Medium,45%0AGlivor,Jungle,130,Small,275%0AJornak,Ocean,85,Large,145%0AMelek,Desert,140,Medium,325%0ATornis,Sky,190,Small,405%0A'''%0Aaliens_clean%20%3D%20pd.read_csv%28io.StringIO%28csv%29%29%0A%0Aaliens_clean.groupby%28%22habitat%22%29%5B%22lifespan%22%5D.mean%28%29&d=2025-02-13&lang=py&v=v1){target="_blank"}. (Note that the visualizatoin page may take a few seconds to load.)
+
+#### Exercise ☕📝
+Calculate the average weight of aliens by size.
+
+```{pyodide}
+#| envir: global
+#| exercise: ex_grouping
+#| caption: Grouping Exercise
+# Group data by size and calculate average weight
+aliens_avg_weight_by_size = ______
+print(aliens_avg_weight_by_size)
+```
+
+## Chain Operations
+```{pyodide}
+# For all medium sized aliens, find their average weight and lifespan by habitat
+
+# step by step
+aliens_medium = aliens_clean.loc[aliens_clean["size"] == "Medium"]
+aliens_medium_avg_by_hab = aliens_medium.groupby("habitat")[["lifespan", "weight"]].mean()
+print(aliens_medium_avg_by_hab)
+
+# print a dividing line
+print("-----------------------")
+
+# or chain operations
+aliens_medium_avg_by_hab_chained = (
+     aliens_clean.loc[aliens_clean["size"] == "Medium"]
+    .groupby("habitat")[["lifespan", "weight"]]
+    .mean())
+print(aliens_medium_avg_by_hab_chained)
+```
+
+You can find a step-by-step visualization of this chained operatoin [here](https://pandastutor.com/vis.html#code=import%20pandas%20as%20pd%0Aimport%20io%0A%0Acsv%20%3D%20'''%0Aspecies,habitat,lifespan,size,weight%0AZentar,Jungle,120,Large,300%0AGorlax,Desert,85,Medium,150%0AVexor,Ocean,95,Small,50%0APlutoid,Mountain,150,Medium,180%0AZyphor,Underground,200,Large,500%0AXeltron,Sky,75,Small,40%0AMentar,Jungle,110,Medium,280%0ADraknor,Ocean,90,Small,140%0ASeltrix,Desert,130,Large,320%0AQuorin,Sky,180,Medium,400%0ATarnok,Underground,160,Large,450%0AJenthos,Mountain,140,Small,60%0AKrylon,Jungle,125,Medium,310%0AOrbos,Ocean,105,Small,200%0AVeltra,Desert,95,Large,330%0AZylen,Sky,80,Medium,120%0AXyron,Jungle,115,Medium,290%0ABlentor,Desert,95,Small,160%0AVorlak,Ocean,85,Large,55%0ATreznor,Mountain,145,Small,190%0AYelkor,Underground,210,Large,510%0AZenthos,Sky,70,Medium,45%0AGlivor,Jungle,130,Small,275%0AJornak,Ocean,85,Large,145%0AMelek,Desert,140,Medium,325%0ATornis,Sky,190,Small,405%0A'''%0Aaliens_clean%20%3D%20pd.read_csv%28io.StringIO%28csv%29%29%0A%0A%28aliens_clean.loc%5Baliens_clean%5B%22size%22%5D%20%3D%3D%20%22Medium%22%5D%0A%20%20%20%20.groupby%28%22habitat%22%29%5B%5B%22lifespan%22,%20%22weight%22%5D%5D%0A%20%20%20%20.mean%28%29%29&d=2025-02-13&lang=py&v=v1){target="_blank"}. (Note that the visualizatoin page may take a few seconds to load.)
+
+#### Exercise ☕📝
+For all large sized aliens, what are the longest lifespan for each habitat.
+
+```{pyodide}
+#| envir: global
+#| exercise: ex_chaining
+#| caption: Chaining Exercise
+# For all large sized aliens, find the longest lifespan by habitat
+aliens_large_max_lifespan_by_hab = ______
+print(aliens_large_max_lifespan_by_hab)
+```
+
+## Merging Data
+
+There are many ways to merge datasets. We will only cover one often used merge called *left merge* (or *left join*) in this example. A left merge combines two datasets based on a common column, keeping all rows from the left dataset and only matching rows from the right dataset.
+
+```{pyodide}
+# Creating a secondary dataset with additional species information
+extra_info = {
+    "species": ["Zentar", "Vexor", "Plutoid", "Denthos"],
+    "diet": ["Herbivore", "Carnivore", "Omnivore", "Carnivore"],
+    "intelligence_level": ["High", "Low", "High", "Medium"]
+}
+
+# Convert to DataFrame
+extra_info_df = pd.DataFrame(extra_info)
+
+# print the extra_info_df
+print(extra_info_df)
+
+# print a dividing line
+print("-----------------------")
+
+# Performing a left merge (based on the common column "species")
+# Left table: extra_info_df
+# Right table: aliens_clean
+aliens_merged = extra_info_df.merge(aliens_clean, on="species", how="left")
+
+# Display the merged dataset
+print(aliens_merged)
+```
+
+You can find a visualization of this merge operation [here](https://pandastutor.com/vis.html#code=import%20pandas%20as%20pd%0Aimport%20io%0A%0Acsv%20%3D%20'''%0Aspecies,habitat,lifespan,size,weight%0AZentar,Jungle,120,Large,300%0AGorlax,Desert,85,Medium,150%0AVexor,Ocean,95,Small,50%0APlutoid,Mountain,150,Medium,180%0AZyphor,Underground,200,Large,500%0AXeltron,Sky,75,Small,40%0AMentar,Jungle,110,Medium,280%0ADraknor,Ocean,90,Small,140%0ASeltrix,Desert,130,Large,320%0AQuorin,Sky,180,Medium,400%0ATarnok,Underground,160,Large,450%0AJenthos,Mountain,140,Small,60%0AKrylon,Jungle,125,Medium,310%0AOrbos,Ocean,105,Small,200%0AVeltra,Desert,95,Large,330%0AZylen,Sky,80,Medium,120%0AXyron,Jungle,115,Medium,290%0ABlentor,Desert,95,Small,160%0AVorlak,Ocean,85,Large,55%0ATreznor,Mountain,145,Small,190%0AYelkor,Underground,210,Large,510%0AZenthos,Sky,70,Medium,45%0AGlivor,Jungle,130,Small,275%0AJornak,Ocean,85,Large,145%0AMelek,Desert,140,Medium,325%0ATornis,Sky,190,Small,405%0A'''%0Aaliens_clean%20%3D%20pd.read_csv%28io.StringIO%28csv%29%29%0A%0Aextra_info%20%3D%20%7B%0A%20%20%20%20%22species%22%3A%20%5B%22Zentar%22,%20%22Vexor%22,%20%22Plutoid%22,%20%22Denthos%22%5D,%0A%20%20%20%20%22diet%22%3A%20%5B%22Herbivore%22,%20%22Carnivore%22,%20%22Omnivore%22,%20%22Carnivore%22%5D,%0A%20%20%20%20%22intelligence_level%22%3A%20%5B%22High%22,%20%22Low%22,%20%22High%22,%20%22Medium%22%5D%0A%7D%0A%0Aextra_info_df%20%3D%20pd.DataFrame%28extra_info%29%0A%0Aextra_info_df.merge%28aliens_clean,%20on%3D%22species%22,%20how%3D%22left%22%29&d=2025-02-13&lang=py&v=v1){target="_blank"}. (Note that the visualizatoin page may take a few seconds to load.)

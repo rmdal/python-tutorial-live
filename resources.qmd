@@ -1,0 +1,26 @@
+---
+title: Resources
+format: html
+toc: true
+---
+
+## Tutorials & Books
+
+Learn Python programming and data science with these free resources:
+
+* [Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/) by Software Carpentry
+* [Python Intro](https://developers.google.com/edu/python/introduction) by Google
+* [Python for Beginners](https://learn.microsoft.com/en-us/shows/intro-to-python-development/) by Microsoft
+* [Python for Data Analysis, 3E](https://wesmckinney.com/book/) by Wes McKinney (creator of pandas library)
+* [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) by Jake VanderPlas
+* [Numpy Quick Start](https://numpy.org/doc/stable/user/quickstart.html)
+* [10 Minutes to Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)
+* [Python Style Guide](https://peps.python.org/pep-0008/)
+
+##  Python Cloud Notebook Services
+
+Run Python code in the cloud with these free services:
+
+* [Google Colab](https://colab.research.google.com/)
+* [UofT JupyterHub](https://datatools.utoronto.ca/) (choose Jupyter or JupterLab for Python)
+* [Anaconda Cloud](https://anaconda.cloud/) (choose the free tier)
