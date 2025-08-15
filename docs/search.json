@@ -1,15 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction",
-    "section": "",
-    "text": "Python is a versatile and beginner-friendly programming language. This tutorial will cover the fundamentals of Python programming, with a particular focus on data analysis tasks.\nWe first review the basic data and programming structures in Python, most of which should be familiar to you from CSC108. We then cover three basic topics to get you started with data analysis in Python:\n\nWork with arrays (using the NumPy library).\nProcess tabular datasets (using the Pandas library).\nPerform a simple regression analysis.\n\nThis tutorial site is somewhat “special” as you can try out the code snippets in the tutorial and see the results immediately in the browser.\n\n\n\n\n\n\nNote\n\n\n\nAs a result, you may find the site loads slowly because it needs to load the Python interpreter, certain libraries and datasets, so please be patient.\n\n\nAs an example, let’s start with a simple “Hello, World!” program.\n\n\n\n\n\n\nClick the “Run Code” button to run the code snippet. You could also edit the code in the code block. For example, print a different message if you like. If you want to reset the code snippet back to the original, click the “Start Over” button.\nYou will also see exercises throughout the tutorial to help you practice what you’ve learned.\n\nExercise ☕📝\nPrint the message “Python is fun!” in all uppercase and add two more exclamation marks at the end.",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
     "objectID": "resources.html",
     "href": "resources.html",
     "title": "Resources",
@@ -213,6 +203,16 @@
     "crumbs": [
       "Data Analysis",
       "Numpy"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Python is a versatile and beginner-friendly programming language. This tutorial will cover the fundamentals of Python programming, with a particular focus on data analysis tasks.\nWe first review the basic data and programming structures in Python, most of which should be familiar to you from CSC108. We then cover three basic topics to get you started with data analysis in Python:\n\nWork with arrays (using the NumPy library).\nProcess tabular datasets (using the Pandas library).\nPerform a simple regression analysis.\n\nThis tutorial site is somewhat “special” as you can try out the code snippets in the tutorial and see the results immediately in the browser.\n\n\n\n\n\n\nNote\n\n\n\nAs a result, you may find the site loads slowly because it needs to load the Python interpreter, certain libraries and datasets, so please be patient.\n\n\nAs an example, let’s start with a simple “Hello, World!” program.\n\n\n\n\n\n\nClick the “Run Code” button to run the code snippet. You could also edit the code in the code block. For example, print a different message if you like. If you want to reset the code snippet back to the original, click the “Start Over” button.\nYou will also see exercises throughout the tutorial to help you practice what you’ve learned.\n\nExercise ☕📝\nPrint the message “Python is fun!” in all uppercase and add two more exclamation marks at the end.",
+    "crumbs": [
+      "Introduction"
     ]
   },
   {
@@ -440,7 +440,40 @@
     "href": "regression.html",
     "title": "Regression Analysis",
     "section": "",
-    "text": "Work in progress.",
+    "text": "In this section, we learn how to perform regression analysis using Python. Regression analysis is a powerful statistical method used to examine the relationship between a dependent variable and one or more independent variables. It is widely used in various fields such as economics, finance, social sciences, and more.",
+    "crumbs": [
+      "Data Analysis",
+      "Regression Analysis"
+    ]
+  },
+  {
+    "objectID": "regression.html#importing-the-dataset",
+    "href": "regression.html#importing-the-dataset",
+    "title": "Regression Analysis",
+    "section": "Importing the Dataset",
+    "text": "Importing the Dataset\nWe first import a dataset. This is a dataset on housing prices and air pollution in Harrison & Rubinfeld (1978). The dataset is also used throughout an undergraduate econometrics text book by Wooldridge: Introductory Econometrics: A Modern Approach.\nThe data dictionary is as follows (source)\n\n\n\nVariable\nDescription\n\n\n\n\n1. price\nmedian housing price, $\n\n\n2. crime\ncrimes committed per capita\n\n\n3. nox\nnitrous oxide, parts per 100 mill.\n\n\n4. rooms\navg number of rooms per house\n\n\n5. dist\nweighted dist. to 5 employ centers\n\n\n6. radial\naccessibiliy index to radial hghwys\n\n\n7. proptax\nproperty tax per $1000\n\n\n8. stratio\naverage student-teacher ratio\n\n\n9. lowstat\n% of people ‘lower status’",
+    "crumbs": [
+      "Data Analysis",
+      "Regression Analysis"
+    ]
+  },
+  {
+    "objectID": "regression.html#quick-inspection",
+    "href": "regression.html#quick-inspection",
+    "title": "Regression Analysis",
+    "section": "Quick Inspection",
+    "text": "Quick Inspection\nLet’s focus on price, nox, rooms and stratio for this analysis, and quickly inspect these four variables. (By no means the data exploration done here is complete and thorough.)",
+    "crumbs": [
+      "Data Analysis",
+      "Regression Analysis"
+    ]
+  },
+  {
+    "objectID": "regression.html#linear-regression",
+    "href": "regression.html#linear-regression",
+    "title": "Regression Analysis",
+    "section": "Linear Regression",
+    "text": "Linear Regression\nWe can use the statsmodels package to perform linear regression analysis. The package supports the OLS() model (Ordinary Least Square model is just another name for linear regression). It also offers an easy way to write regression formula, and produces a nice regression report. This regression report is especially useful for causal analysis, where you care about statistical inference in the regression analysis (e.g., confidence intervals or hypothesis tests for the estimated coefficients).\n\nSimple Linear Regression\nWe start by runing a simple regression to investigate the effect of air pollution on housing price.\n\\(log(price) = \\beta_0 + \\beta_1log(nox) + u\\).\n\n\n\n\n\n\n\n\nMultiple Linear Regression\nLet’s run a mulitple regression to investigate the effect of air pollution on housing price, but this time we control for rooms and student-teacher ratio.\n\\(log(price) = \\beta_0 + \\beta_1log(nox) + \\beta_2rooms + \\beta_3stratio + u\\).\n\n\n\n\n\n\n\nExercise ☕📝\nRun a similiar multiple linear regression analysis, but this time include the squared term for rooms.\n\\(log(price) = \\beta_0 + \\beta_1log(nox) + \\beta_2rooms + \\beta_2rooms^2 + \\beta_4stratio + u\\).",
     "crumbs": [
       "Data Analysis",
       "Regression Analysis"

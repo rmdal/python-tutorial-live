@@ -2,9 +2,133 @@
 title: Regression Analysis
 format: live-html
 toc: true
+resources:
+  - "data"
 pyodide:
   resources:
-    - https://raw.githubusercontent.com/tdmdal/datasets-teaching/main/mag7/mag7.csv
+    - data/hprice.csv
 ---
 
-Work in progress.
+In this section, we learn how to perform regression analysis using Python. Regression analysis is a powerful statistical method used to examine the relationship between a dependent variable and one or more independent variables. It is widely used in various fields such as economics, finance, social sciences, and more.
+
+## Importing the Dataset
+
+We first import a dataset. This is a dataset on housing prices and air pollution in [Harrison & Rubinfeld (1978)](https://www.sciencedirect.com/science/article/pii/0095069678900062). The dataset is also used throughout an undergraduate econometrics text book by Wooldridge: *Introductory Econometrics: A Modern Approach*.
+
+The data dictionary is as follows ([source](http://fmwww.bc.edu/ec-p/data/wooldridge/hprice2.des))
+
+| Variable    | Description                         |
+|-------------|-------------------------------------|
+| 1. price    | median housing price, \$            |
+| 2. crime    | crimes committed per capita         |
+| 3. nox      | nitrous oxide, parts per 100 mill.  |
+| 4. rooms    | avg number of rooms per house       |
+| 5. dist     | weighted dist. to 5 employ centers  |
+| 6. radial   | accessibiliy index to radial hghwys |
+| 7. proptax  | property tax per $1000              |
+| 8. stratio  | average student-teacher ratio       |
+| 9. lowstat  | % of people 'lower status'          |
+
+```{pyodide}
+# import pandas library
+import pandas as pd
+
+# load data from csv file
+hprice = pd.read_csv("data/hprice.csv")
+
+# display first 5 rows
+hprice.head()
+```
+
+
+## Quick Inspection
+
+Let's focus on `price`, `nox`, `rooms` and `stratio` for this analysis, and quickly inspect these four variables. (By no means the data exploration done here is complete and thorough.)
+
+```{pyodide}
+# subset the data to interested columns
+hprice_subset = hprice[["price", "nox", "rooms", "stratio"]].copy()
+
+# display summary statistics
+hprice_subset.describe()
+```
+
+```{pyodide}
+# display a pairwise correlation matrix
+hprice_subset.corr()
+```
+
+```{pyodide}
+import matplotlib.pyplot as plt
+
+# display a scatter plot matrix
+pd.plotting.scatter_matrix(hprice_subset)
+plt.show()
+```
+
+## Linear Regression
+
+We can use the [`statsmodels`](https://www.statsmodels.org/stable/index.html) package to perform linear regression analysis. The package supports the [`OLS()`](https://www.statsmodels.org/stable/regression.html) model (Ordinary Least Square model is just another name for linear regression). It also offers an easy way to write [regression formula](https://www.statsmodels.org/dev/example_formulas.html), and produces a nice regression report. This regression report is especially useful for causal analysis, where you care about statistical inference in the regression analysis (e.g., confidence intervals or hypothesis tests for the estimated coefficients).
+
+### Simple Linear Regression
+We start by runing a simple regression to investigate the effect of air pollution on housing price.
+
+$log(price) = \beta_0 + \beta_1log(nox) + u$.
+
+```{pyodide}
+import numpy as np
+import statsmodels.formula.api as smf
+
+# create the log transformations for price and nox
+hprice_subset["lprice"] = np.log(hprice_subset["price"])
+hprice_subset["lnox"] = np.log(hprice_subset["nox"])
+
+# create a simple OLS model
+simple_ols = smf.ols(formula="lprice ~ lnox", data=hprice_subset)
+
+# fit the OLS model
+simple_result = simple_ols.fit()
+
+# print the regression report
+print(simple_result.summary())
+```
+
+### Multiple Linear Regression
+Let's run a mulitple regression to investigate the effect of air pollution on housing price, but this time we control for rooms and student-teacher ratio.
+
+$log(price) = \beta_0 + \beta_1log(nox) + \beta_2rooms + \beta_3stratio + u$.
+
+```{pyodide}
+# create a multiple OLS model
+multiple_ols = smf.ols(formula="lprice ~ lnox + rooms + stratio", data=hprice_subset)
+
+# fit the OLS model
+multiple_result = multiple_ols.fit()
+
+# print the regression report
+print(multiple_result.summary())
+```
+
+#### Exercise ☕📝
+Run a similiar multiple linear regression analysis, but this time include the squared term for rooms.
+
+$log(price) = \beta_0 + \beta_1log(nox) + \beta_2rooms + \beta_2rooms^2 + \beta_4stratio + u$.
+
+```{pyodide}
+#| envir: global
+#| exercise: ex_multiple_ols
+#| caption: Regression Exercie
+
+# Multiple linear regression with the squared term for rooms
+# Hint: use the I(rooms**2) for rooms squared in the formula
+
+# create a multiple OLS model
+multiple_ols_new = smf.ols(______)
+
+# fit the OLS model
+multiple_result_new = ______
+
+# print the regression report
+print(______)
+```
+
